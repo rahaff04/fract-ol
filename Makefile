@@ -1,16 +1,20 @@
 NAME = fractol
-
-SRC = main.c init.c events.c
-OBJ = $(SRC:.c=.o)
-
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 MLXFLAGS = -lmlx -lXext -lX11 -lm
+SRC = main.c \
+	  init.c \
+	  draw.c \
+	  image.c
+OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) $(MLXFLAGS) -o $(NAME)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(MLXFLAGS)
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJ)

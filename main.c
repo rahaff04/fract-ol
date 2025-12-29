@@ -1,20 +1,14 @@
 #include "fractol.h"
 
-int main (int ac, char **av)
+int main(int argc, char **argv)
 {
-    t_fractol f;
-
-    if (ac == 2 && ft_strncmp(av[1], "mandelbrot", 10) || 4 == ac && ft_strncmp(av[1], "julia", 5)) 
+    t_fractal f;
+    (void)argv;
+    if (argc != 1)
     {
-        // init_fractol(&f);
-       f.name = av[1];
-        // fractol_render(&f);
-        // mlx_loop(f.mlx_con);
-    }
-    else
-    {
-        write(1, "Usage: ./fractol mandelbrot\n", 28);
-        write(1, "or:    ./fractol julia <real part> <imaginary part>\n", 53);
+        write(2, "Usage: ./fractol\n", 17);
         return (1);
     }
+    init_fractal(&f);
+    return (0);
 }

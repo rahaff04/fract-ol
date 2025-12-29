@@ -1,35 +1,28 @@
 #include "fractol.h"
 
-
-static void malloc_error(void)
+void declare_varibles(t_fractal *f)
 {
-    write(2, "Error: Memory allocation failed\n", 33);
-    exit(EXIT_FAILURE);
+    f->min_re = -2.0;
+    f->max_re = 1.0;
+    f->min_im = -1.2;
+    f->max_im = 1.5;
 }
 
-void	init_fractol(t_fractol *f)
+void init_fractal(t_fractal *f)
 {
-    f->mlx_con = mlx_init();
-    if (!f->mlx_con)
-        malloc_error();
-    f->mlx_win = mlx_new_window(f->mlx_con, WIDTH, HEIGHT, f->name);
-    if (!f->mlx_win)
-    {
-        mlx_destroy_display(f->mlx_con);
-        free(f->mlx_con);
-        malloc_error();
-    }
-
-    f->img->imgptr = mlx_new_image(f->mlx_con, WIDTH, HEIGHT);
-    if (!f->img->imgptr)
-    {
-        mlx_destroy_window(f->mlx_con, f->mlx_win);
-        mlx_destroy_display(f->mlx_con);
-        free(f->mlx_con);
-        malloc_error();
-    }
-    
-    f->img->pixils = mlx_get_data_addr(f->img->imgptr, &f->img->bpp, &f->img->line_len, &f->img->endian);
-    //events_init(f);
-    //data_init(f);
+    f->mlx = mlx_init();
+    if (!f->mlx)
+        exit(1);
+    f->win = mlx_new_window(f->mlx, WIDTH, HEIGHT, "Fractol");
+    if (!f->win)
+        exit(1);
+    declare_varibles(f);
+    create_img(f);
+    draw_mandelbrot(f);
+    mlx_put_image_to_window(f->mlx, f->win, f->img, 0, 0);
+    mlx_loop(f->mlx);
 }
+
+
+
+

@@ -1,31 +1,33 @@
 #ifndef FRACTOL_H
-#define FRACTOL_H
+# define FRACTOL_H
 
-#include "minilibx-linux/mlx.h"
-#include <math.h>
-#include <stdlib.h>
 #include <unistd.h>
+#include <stdlib.h>
+#include <math.h>
+#include "./mlx.h"
 
-#define WIDTH 800
-#define HEIGHT 800
-typedef struct s_img
+# define WIDTH 800
+# define HEIGHT 600
+# define MAX_ITER 1000
+
+typedef struct s_fractal
 {
-	void	*imgptr;
-	char	*pixils; 
-	int		bpp;
-	int		line_len;
-	int		endian;
-}	t_img;
+    void *mlx;
+    void *win;
+    void *img;
+    char *addr;
+    int bpp;
+    int line_length;
+    int endian;
+    double min_re;
+    double max_re;
+    double min_im;
+    double max_im;
+} t_fractal;
 
-typedef struct s_fractol
-{
-	char		*name;
-	void	*mlx_con; //mlx init()
-	void 	*mlx_win; //mlx_new_window()
-	t_img	*img;     //mlx_new_image()
-}	t_fractol;
-
-int	ft_strncmp(char *s1, char *s2, size_t n);
-void	init_fractol(t_fractol *f);
-
-#endif
+void create_img(t_fractal *f);
+void pixel(t_fractal *f, int x, int y, int color);
+int mandelbrot(double cr, double ci);
+void draw_mandelbrot(t_fractal *f);
+void init_fractal(t_fractal *f);
+# endif
