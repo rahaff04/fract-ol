@@ -38,7 +38,7 @@ void    draw_mandelbrot(t_fractal *f)
             cr = f->min_re + x * (f->max_re - f->min_re) / WIDTH;
             ci = f->max_im - y * (f->max_im - f->min_im) / HEIGHT;
             i = mandelbrot(cr, ci);
-            pixel(f, x, y, i * 0x050505 / MAX_ITER);
+            pixel(f, x, y,get_color(i));
             x++;
         }
         y++;

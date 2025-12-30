@@ -6,7 +6,10 @@ SRC = main.c \
 	  init.c \
 	  draw.c \
 	  image.c \
-	  events.c 
+	  events.c \
+	  close.c \
+	  events_key.c \
+	  ft_strncmp.c
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)

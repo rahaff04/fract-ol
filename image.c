@@ -10,6 +10,15 @@ void create_img(t_fractal *f)
         exit(1);
 }
 
+int get_color(int i)
+{
+    if (i == MAX_ITER)
+        return (0x000000);
+    return ((i * 10) << 16 | (i * 5) << 8 | (i * 2));
+}
+
+
+
 void pixel(t_fractal *f, int x, int y, int color)
 {
     char    *dst;
