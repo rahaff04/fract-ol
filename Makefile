@@ -5,7 +5,8 @@ MLXFLAGS = -lmlx -lXext -lX11 -lm
 SRC = main.c \
 	  init.c \
 	  draw.c \
-	  image.c
+	  image.c \
+	  events.c 
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)

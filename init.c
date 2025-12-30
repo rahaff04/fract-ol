@@ -6,6 +6,7 @@ void declare_varibles(t_fractal *f)
     f->max_re = 1.0;
     f->min_im = -1.2;
     f->max_im = 1.5;
+    f->zoom = 1.0;
 }
 
 void init_fractal(t_fractal *f)
@@ -20,6 +21,7 @@ void init_fractal(t_fractal *f)
     create_img(f);
     draw_mandelbrot(f);
     mlx_put_image_to_window(f->mlx, f->win, f->img, 0, 0);
+    mlx_mouse_hook(f->win, mouse_zoom, f);
     mlx_loop(f->mlx);
 }
 

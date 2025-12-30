@@ -8,7 +8,7 @@
 
 # define WIDTH 800
 # define HEIGHT 600
-# define MAX_ITER 1000
+# define MAX_ITER 100
 
 typedef struct s_fractal
 {
@@ -23,11 +23,13 @@ typedef struct s_fractal
     double max_re;
     double min_im;
     double max_im;
+    double zoom;
 } t_fractal;
 
 void create_img(t_fractal *f);
 void pixel(t_fractal *f, int x, int y, int color);
 int mandelbrot(double cr, double ci);
 void draw_mandelbrot(t_fractal *f);
+int mouse_zoom(int button, int x, int y, t_fractal *f);
 void init_fractal(t_fractal *f);
 # endif
