@@ -3,13 +3,20 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 MLXFLAGS = -lmlx -lXext -lX11 -lm
 SRC = main.c \
+	  parse.c \
 	  init.c \
-	  draw.c \
+	  mandelbrot/declare_mandel.c \
+	  mandelbrot/draw_mandel.c \
+	  mandelbrot/mouse_events_ma.c \
+	  mandelbrot/events_key_ma.c \
+	  Julia/declare_ju.c \
+	  Julia/draw_julia.c \
+	  Julia/mouse_event_ju.c \
+	  Julia/key_events_ju.c \
 	  image.c \
-	  events.c \
 	  close.c \
-	  events_key.c \
-	  ft_strncmp.c
+	  utils/ft_strncmp.c \
+	  utils/ft_bzero.c
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)

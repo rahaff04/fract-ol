@@ -1,6 +1,6 @@
-#include "fractol.h"
+#include "../fractol.h"
 
-int     mouse_zoom(int button, int x, int y, t_fractal *f)
+int     mouse_zoom_ma(int button, int x, int y, t_fractal *f)
 {
     double mouse_re;
     double mouse_im;

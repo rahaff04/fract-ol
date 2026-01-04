@@ -1,6 +1,6 @@
-#include "fractol.h"
+#include "../fractol.h"
 
-int key_hook_up_down(int keycode, t_fractal *f)
+int key_hook_up_down_ma(int keycode, t_fractal *f)
 {
     double move;
 
@@ -19,7 +19,7 @@ int key_hook_up_down(int keycode, t_fractal *f)
     mlx_put_image_to_window(f->mlx, f->win, f->img, 0, 0);
     return (0);
 }
-int key_hook_left_right(int keycode, t_fractal *f)
+int key_hook_left_right_ma(int keycode, t_fractal *f)
 {
     double move;
 
@@ -39,13 +39,13 @@ int key_hook_left_right(int keycode, t_fractal *f)
     return (0);
 }
 
-int key_event(int keycode, t_fractal *f)
+int key_event_ma(int keycode, t_fractal *f)
 {
     if (keycode == 65307)
         close_window(f);
     else if (keycode == 65362 || keycode == 65364)
-        key_hook_up_down(keycode, f);
+        key_hook_up_down_ma(keycode, f);
     else if (keycode == 65361 || keycode == 65363)
-        key_hook_left_right(keycode, f);
+        key_hook_left_right_ma(keycode, f);
     return (0);
 }

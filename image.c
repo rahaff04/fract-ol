@@ -13,11 +13,15 @@ void create_img(t_fractal *f)
 int get_color(int i)
 {
     if (i == MAX_ITER)
-        return (0x000000);
-    return ((i * 10) << 16 | (i * 5) << 8 | (i * 2));
+        return (0x000000); // أسود للنقاط داخل المجموعة
+
+    // نحدد تدرج ألوان ثابت يشبه الـ palette الكلاسيكي
+    int r = (i * 9) % 256;   // أحمر يتدرج
+    int g = (i * 7) % 256;   // أخضر يتدرج أبطأ شوي
+    int b = (i * 5) % 256;   // أزرق أبطأ
+
+    return ((r << 16) | (g << 8) | b);
 }
-
-
 
 void pixel(t_fractal *f, int x, int y, int color)
 {
