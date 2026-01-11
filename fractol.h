@@ -37,7 +37,7 @@ typedef struct s_fractal
 
 void ft_bzero(void *s, size_t n);
 int ft_strncmp(char *s1, char *s2, size_t n);
-void create_img(t_fractal *f);
+int create_img(t_fractal *f);
 void pixel(t_fractal *f, int x, int y, int color);
 int get_color (int i);
 int mandelbrot(double cr, double ci);
@@ -58,5 +58,6 @@ void declare_mvaribles(t_fractal *f);
 void declare_jvaribles(t_fractal *f);
 void init_mandel(t_fractal *f);
 void init_julia(t_fractal *f);
-void init_fractal(t_fractal *f);
-# endif
+int init_fractal(t_fractal *f);
+
+#endif
