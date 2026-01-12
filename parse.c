@@ -6,17 +6,44 @@
 /*   By: ralamair <ralamair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 10:27:05 by ralamair          #+#    #+#             */
-/*   Updated: 2026/01/12 14:09:17 by ralamair         ###   ########.fr       */
+/*   Updated: 2026/01/12 15:07:02 by ralamair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+
+static int	is_valid_number(char *str)
+{
+	int	i;
+	int	dot_count;
+
+	i = 0;
+	dot_count = 0;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	while (str[i])
+	{
+		if (str[i] == '.')
+			dot_count++;
+		else if (str[i] < '0' || str[i] > '9')
+			return (0);
+		if (dot_count > 1)
+			return (0);
+		i++;
+	}
+	return (1);
+}
 
 static int	parse_julia(t_fractal *f, int ac, char **av)
 {
 	if (ac != 4)
 	{
 		write(2, "./fractol julia <real> <imaginary>\n", 34);
+		return (1);
+	}
+	if (!is_valid_number(av[2]) || !is_valid_number(av[3]))
+	{
+		write(2, "Error: Invalid number format\n", 28);
 		return (1);
 	}
 	f->julia_cr = atof(av[2]);

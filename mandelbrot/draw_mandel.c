@@ -6,11 +6,33 @@
 /*   By: ralamair <ralamair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 10:45:48 by ralamair          #+#    #+#             */
-/*   Updated: 2026/01/12 11:48:22 by ralamair         ###   ########.fr       */
+/*   Updated: 2026/01/12 14:32:20 by ralamair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fractol.h"
+
+int	mandelbrot(double cr, double ci)
+{
+	double	zr;
+	double	zi;
+	double	temp;
+	int		i;
+
+	zr = 0;
+	zi = 0;
+	i = 0;
+	while (i < MAX_ITER)
+	{
+		if (zr * zr + zi * zi > 4)
+			break ;
+		temp = zr * zr - zi * zi + cr;
+		zi = 2 * zr * zi + ci;
+		zr = temp;
+		i++;
+	}
+	return (i);
+}
 
 static int	calc_mandel(t_calc_data *data, int x, int y)
 {

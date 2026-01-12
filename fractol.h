@@ -6,7 +6,7 @@
 /*   By: ralamair <ralamair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 10:26:38 by ralamair          #+#    #+#             */
-/*   Updated: 2026/01/12 14:14:28 by ralamair         ###   ########.fr       */
+/*   Updated: 2026/01/12 14:59:53 by ralamair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ typedef struct s_calc_data
 
 void			ft_bzero(void *s, size_t n);
 int				ft_strncmp(char *s1, char *s2, size_t n);
+double			ft_atof(char *str);
 int				create_img(t_fractal *f);
 void			pixel(t_fractal *f, int x, int y, int color);
 int				get_color(int i);
