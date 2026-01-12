@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   declare_mandel.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ralamair <ralamair@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/12 10:28:26 by ralamair          #+#    #+#             */
+/*   Updated: 2026/01/12 11:59:05 by ralamair         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../fractol.h"
 
-void declare_mvaribles(t_fractal *f)
+void	declare_mvaribles(t_fractal *f)
 {
-    f->min_re = -2.0;
-    f->max_re = 1.0;
-    f->min_im = -1.2;
-    f->max_im = 1.5;
-    f->zoom = 1.0;
+	f->min_re = -2.0;
+	f->max_re = 1.0;
+	f->min_im = -1.2;
+	f->max_im = 1.5;
+	f->zoom = 1.0;
 }

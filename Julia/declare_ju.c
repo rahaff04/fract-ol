@@ -1,13 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   declare_ju.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ralamair <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/12 10:29:13 by ralamair          #+#    #+#             */
+/*   Updated: 2026/01/12 12:03:15 by ralamair         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../fractol.h"
 
-void declare_jvaribles(t_fractal *f)
+void	declare_jvaribles(t_fractal *f)
 {
-    f->min_re = -2.0;
-    f->max_re = 2.0;
-    f->min_im = -2.0;
-    f->max_im = 2.0;
-    f->zoom = 1.0;
-
-    // f->julia_cr = -0.7;
-    // f->julia_ci = 0.27015;
+	f->min_re = -2.0;
+	f->max_re = 2.0;
+	f->min_im = -2.0;
+	f->max_im = 2.0;
+	f->zoom = 1.0;
 }
