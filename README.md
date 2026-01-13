@@ -3,3 +3,4 @@
 
 ## Description
 A fractal visualization program that renders Mandelbrot and Julia sets.
+# fract-ol
