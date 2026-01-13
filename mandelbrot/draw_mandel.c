@@ -12,11 +12,11 @@
 
 #include "../fractol.h"
 
-int	mandelbrot(double cr, double ci)
+static int	mandelbrot(double cr, double ci)
 {
 	double	zr;
 	double	zi;
-	double	temp;
+	double	tmp;
 	int		i;
 
 	zr = 0;
@@ -26,41 +26,26 @@ int	mandelbrot(double cr, double ci)
 	{
 		if (zr * zr + zi * zi > 4)
 			break ;
-		temp = zr * zr - zi * zi + cr;
+		tmp = zr * zr - zi * zi + cr;
 		zi = 2 * zr * zi + ci;
-		zr = temp;
+		zr = tmp;
 		i++;
 	}
 	return (i);
 }
 
-static int	calc_mandel(t_calc_data *data, int x, int y)
+static void	draw_row(t_fractal *f, int y, double re_f, double im_f)
 {
+	int		x;
 	double	cr;
 	double	ci;
 
-	cr = data->f->min_re + x * data->re_factor;
-	ci = data->f->max_im - y * data->im_factor;
-	return (mandelbrot(cr, ci));
-}
-
-static void	draw_mandel_row(t_fractal *f, int y,
-				double re_factor, double im_factor)
-{
-	int				x;
-	int				i;
-	double			ci;
-	t_calc_data		data;
-
-	data.f = f;
-	data.re_factor = re_factor;
-	data.im_factor = im_factor;
-	ci = f->max_im - y * im_factor;
 	x = 0;
+	ci = f->max_im - y * im_f;
 	while (x < WIDTH)
 	{
-		i = calc_mandel(&data, x, y);
-		pixel(f, x, y, get_color(i));
+		cr = f->min_re + x * re_f;
+		pixel(f, x, y, get_color(mandelbrot(cr, ci)));
 		x++;
 	}
 }
@@ -68,15 +53,16 @@ static void	draw_mandel_row(t_fractal *f, int y,
 void	draw_mandelbrot(t_fractal *f)
 {
 	int		y;
-	double	re_factor;
-	double	im_factor;
+	double	re_f;
+	double	im_f;
 
-	re_factor = (f->max_re - f->min_re) / WIDTH;
-	im_factor = (f->max_im - f->min_im) / HEIGHT;
+	re_f = (f->max_re - f->min_re) / WIDTH;
+	im_f = (f->max_im - f->min_im) / HEIGHT;
 	y = 0;
 	while (y < HEIGHT)
 	{
-		draw_mandel_row(f, y, re_factor, im_factor);
+		draw_row(f, y, re_f, im_f);
 		y++;
 	}
 }
+

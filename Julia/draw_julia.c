@@ -12,9 +12,9 @@
 
 #include "../fractol.h"
 
-static int	calc_julia(t_calc_data *data, double zr, double zi)
+static int	julia(double zr, double zi, t_fractal *f)
 {
-	double	temp;
+	double	tmp;
 	int		i;
 
 	i = 0;
@@ -22,33 +22,26 @@ static int	calc_julia(t_calc_data *data, double zr, double zi)
 	{
 		if (zr * zr + zi * zi > 4)
 			break ;
-		temp = zr * zr - zi * zi + data->f->julia_cr;
-		zi = 2 * zr * zi + data->f->julia_ci;
-		zr = temp;
+		tmp = zr * zr - zi * zi + f->julia_cr;
+		zi = 2 * zr * zi + f->julia_ci;
+		zr = tmp;
 		i++;
 	}
 	return (i);
 }
 
-static void	draw_julia_row(t_fractal *f, int y,
-		double re_factor, double im_factor)
+static void	draw_row(t_fractal *f, int y, double re_f, double im_f)
 {
-	int				x;
-	int				i;
-	double			zr;
-	double			zi;
-	t_calc_data		data;
+	int		x;
+	double	zr;
+	double	zi;
 
-	data.f = f;
-	data.re_factor = re_factor;
-	data.im_factor = im_factor;
-	zi = f->max_im - y * im_factor;
 	x = 0;
+	zi = f->max_im - y * im_f;
 	while (x < WIDTH)
 	{
-		zr = f->min_re + x * re_factor;
-		i = calc_julia(&data, zr, zi);
-		pixel(f, x, y, get_color(i));
+		zr = f->min_re + x * re_f;
+		pixel(f, x, y, get_color(julia(zr, zi, f)));
 		x++;
 	}
 }
@@ -56,15 +49,15 @@ static void	draw_julia_row(t_fractal *f, int y,
 void	draw_julia(t_fractal *f)
 {
 	int		y;
-	double	re_factor;
-	double	im_factor;
+	double	re_f;
+	double	im_f;
 
-	re_factor = (f->max_re - f->min_re) / WIDTH;
-	im_factor = (f->max_im - f->min_im) / HEIGHT;
+	re_f = (f->max_re - f->min_re) / WIDTH;
+	im_f = (f->max_im - f->min_im) / HEIGHT;
 	y = 0;
 	while (y < HEIGHT)
 	{
-		draw_julia_row(f, y, re_factor, im_factor);
+		draw_row(f, y, re_f, im_f);
 		y++;
 	}
 }

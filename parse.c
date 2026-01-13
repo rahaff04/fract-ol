@@ -25,7 +25,7 @@ static int	is_valid_number(char *str)
 	{
 		if (str[i] == '.')
 			dot_count++;
-		else if (str[i] < '0' || str[i] > '9')
+		else if (!(str[i] >= '0' && str[i] <= '9'))
 			return (0);
 		if (dot_count > 1)
 			return (0);
@@ -46,8 +46,8 @@ static int	parse_julia(t_fractal *f, int ac, char **av)
 		write(2, "Error: Invalid number format\n", 28);
 		return (1);
 	}
-	f->julia_cr = atof(av[2]);
-	f->julia_ci = atof(av[3]);
+	f->julia_cr = ft_atof(av[2]);
+	f->julia_ci = ft_atof(av[3]);
 	if (f->julia_cr < -2.0 || f->julia_cr > 2.0
 		|| f->julia_ci < -2.0 || f->julia_ci > 2.0)
 	{

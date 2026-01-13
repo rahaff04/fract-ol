@@ -48,26 +48,17 @@ typedef struct s_fractal
 	double	julia_ci;
 }	t_fractal;
 
-typedef struct s_calc_data
-{
-	t_fractal	*f;
-	double		re_factor;
-	double		im_factor;
-}	t_calc_data;
-
 void			ft_bzero(void *s, size_t n);
 int				ft_strncmp(char *s1, char *s2, size_t n);
 double			ft_atof(char *str);
 int				create_img(t_fractal *f);
 void			pixel(t_fractal *f, int x, int y, int color);
 int				get_color(int i);
-int				mandelbrot(double cr, double ci);
 void			draw_mandelbrot(t_fractal *f);
 int				mouse_zoom_ma(int button, int x, int y, t_fractal *f);
 int				key_hook_up_down_ma(int keycode, t_fractal *f);
 int				key_hook_left_right_ma(int keycode, t_fractal *f);
 int				key_event_ma(int keycode, t_fractal *f);
-int				julia(double zr, double zi, t_fractal *f);
 int				mouse_zoom_ju(int button, int x, int y, t_fractal *f);
 int				key_hook_up_down_ju(int keycode, t_fractal *f);
 int				key_hook_left_right_ju(int keycode, t_fractal *f);
