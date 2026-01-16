@@ -15,12 +15,10 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-//# include <math.h>
 # include <mlx.h>
 
 # define WIDTH 800
 # define HEIGHT 600
-# define MAX_ITER 100
 # define MOVE_STEP 0.2
 
 typedef enum e_type
