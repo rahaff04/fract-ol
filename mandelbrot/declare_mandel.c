@@ -18,5 +18,6 @@ void	declare_mvaribles(t_fractal *f)
 	f->max_re = 1.0;
 	f->min_im = -1.2;
 	f->max_im = 1.5;
+	f->max_iter = 150;
 	f->zoom = 1.0;
 }

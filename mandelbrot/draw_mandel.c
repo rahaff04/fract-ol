@@ -12,7 +12,7 @@
 
 #include "../fractol.h"
 
-static int	mandelbrot(double cr, double ci)
+static int	mandelbrot(t_fractal *f, double cr, double ci)
 {
 	double	zr;
 	double	zi;
@@ -22,7 +22,7 @@ static int	mandelbrot(double cr, double ci)
 	zr = 0;
 	zi = 0;
 	i = 0;
-	while (i < MAX_ITER)
+	while (i < f->max_iter)
 	{
 		if (zr * zr + zi * zi > 4)
 			break ;
@@ -45,7 +45,7 @@ static void	draw_row(t_fractal *f, int y, double re_f, double im_f)
 	while (x < WIDTH)
 	{
 		cr = f->min_re + x * re_f;
-		pixel(f, x, y, get_color(mandelbrot(cr, ci)));
+		pixel(f, x, y, get_color(mandelbrot(f, cr, ci), f->max_iter));
 		x++;
 	}
 }

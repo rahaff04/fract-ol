@@ -25,13 +25,13 @@ int	create_img(t_fractal *f)
 	return (0);
 }
 
-int	get_color(int i)
+int	get_color(int i, int max_iter)
 {
 	int	r;
 	int	g;
 	int	b;
 
-	if (i == MAX_ITER)
+	if (i == max_iter)
 		return (0x000000);
 	r = (i * 9) % 256;
 	g = (i * 7) % 256;

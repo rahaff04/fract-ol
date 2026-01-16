@@ -18,7 +18,7 @@ static int	julia(double zr, double zi, t_fractal *f)
 	int		i;
 
 	i = 0;
-	while (i < MAX_ITER)
+	while (i < f->max_iter)
 	{
 		if (zr * zr + zi * zi > 4)
 			break ;
@@ -32,7 +32,7 @@ static int	julia(double zr, double zi, t_fractal *f)
 
 static void	draw_row(t_fractal *f, int y, double re_f, double im_f)
 {
-	int		x;
+	int			x;
 	double	zr;
 	double	zi;
 
@@ -41,7 +41,7 @@ static void	draw_row(t_fractal *f, int y, double re_f, double im_f)
 	while (x < WIDTH)
 	{
 		zr = f->min_re + x * re_f;
-		pixel(f, x, y, get_color(julia(zr, zi, f)));
+		pixel(f, x, y, get_color(julia(zr, zi, f), f->max_iter));
 		x++;
 	}
 }

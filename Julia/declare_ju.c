@@ -19,4 +19,5 @@ void	declare_jvaribles(t_fractal *f)
 	f->min_im = -2.0;
 	f->max_im = 2.0;
 	f->zoom = 1.0;
+	f->max_iter = 150;
 }

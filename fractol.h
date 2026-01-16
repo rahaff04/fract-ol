@@ -43,6 +43,7 @@ typedef struct s_fractal
 	double	min_im;
 	double	max_im;
 	double	zoom;
+	int		max_iter;
 	t_type	type;
 	double	julia_cr;
 	double	julia_ci;
@@ -53,7 +54,7 @@ int				ft_strncmp(char *s1, char *s2, size_t n);
 double			ft_atof(char *str);
 int				create_img(t_fractal *f);
 void			pixel(t_fractal *f, int x, int y, int color);
-int				get_color(int i);
+int				get_color(int i, int max_iter);
 void			draw_mandelbrot(t_fractal *f);
 int				mouse_zoom_ma(int button, int x, int y, t_fractal *f);
 int				key_hook_up_down_ma(int keycode, t_fractal *f);
