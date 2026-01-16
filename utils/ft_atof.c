@@ -12,46 +12,54 @@
 
 #include "../fractol.h" 
 
-static int get_sign(char **s)
+static int get_sign(char *s)
 {
     int sign;
+    int i;
 
     sign = 1;
-    while (**s == ' ' || (**s >= 9 && **s <= 13))
-        (*s)++;
-    if (**s == '-' || **s == '+')
+    i= 0;
+    while (s[i] == ' ' || (s[i] >= 9 && s[i] <= 13))
+        i++;
+    if (s[i] == '-' || s[i] == '+')
     {
-        if (**s == '-')
+        if (s[i] == '-')
             sign = -1;
-        (*s)++;
+        i++;
     }
     return (sign);
 }
 
-static double get_number(char **s)
+static double get_number(char *s)
 {
-    double r;
-    double d;
+    double res;
+    double dec;
+    unsigned int i;
 
-    r = 0;
-    d = 1;
-    while (**s >= '0' && **s <= '9')
-        r = r * 10 + (*(*s)++ - '0');
-    if (**s == '.')
+    res = 0;
+    dec = 1;
+    i = 0;
+    while ((s[i] >= '0' && s[i] <= '9'))
     {
-        (*s)++;
-        while (**s >= '0' && **s <= '9')
+        res = res * 10 + (s[i] - '0');
+        i++;
+    }
+    if (s[i] == '.')
+    {
+        i++;
+        while (s[i] >= '0' && s[i] <= '9')
         {
-            d /= 10;
-            r += (*(*s)++ - '0') * d;
+            res += (s[i] - '0') * dec;
+            dec /= 10;
+            i++;
         }
     }
-    return (r);
+    return (res);
 }
 double ft_atof(char *str)
 {
     int sign;
 
-    sign = get_sign(&str);
-    return (get_number(&str) * sign);
+    sign = get_sign(str);
+    return (get_number(str) * sign);
 }

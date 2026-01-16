@@ -15,8 +15,8 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# include <math.h>
-# include "mlx.h"
+//# include <math.h>
+# include <mlx.h>
 
 # define WIDTH 800
 # define HEIGHT 600

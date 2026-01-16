@@ -16,23 +16,28 @@ static int	is_valid_number(char *str)
 {
 	int	i;
 	int	dot_count;
+	int	digit_count;
 
 	i = 0;
 	dot_count = 0;
+	digit_count = 0;
 	if (str[i] == '-' || str[i] == '+')
 		i++;
 	while (str[i])
 	{
 		if (str[i] == '.')
 			dot_count++;
-		else if (!(str[i] >= '0' && str[i] <= '9'))
+		else if (str[i] >= '0' && str[i] <= '9')
+			digit_count++;
+		else
 			return (0);
 		if (dot_count > 1)
 			return (0);
 		i++;
 	}
-	return (1);
+	return (digit_count > 0);
 }
+
 
 static int	parse_julia(t_fractal *f, int ac, char **av)
 {
