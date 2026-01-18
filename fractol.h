@@ -17,8 +17,8 @@
 # include <stdlib.h>
 # include <mlx.h>
 
-# define WIDTH 800
-# define HEIGHT 600
+# define WIDTH 1500
+# define HEIGHT 500
 # define MOVE_STEP 0.2
 
 typedef enum e_type
