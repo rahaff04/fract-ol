@@ -6,7 +6,7 @@
 /*   By: ralamair <ralamair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 10:29:20 by ralamair          #+#    #+#             */
-/*   Updated: 2026/01/12 12:07:06 by ralamair         ###   ########.fr       */
+/*   Updated: 2026/01/21 15:09:43 by ralamair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int	julia(double zr, double zi, t_fractal *f)
 
 static void	draw_row(t_fractal *f, int y, double re_f, double im_f)
 {
-	int			x;
+	int		x;
 	double	zr;
 	double	zi;
 

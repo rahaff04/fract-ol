@@ -1,4 +1,7 @@
-# fract-ol
+
+*This project has been created as part of the 42 curriculum by ralamair*
+
+## Description
 
 A simple graphical program that visualizes mathematical fractals using MiniLibX.
 The project renders Mandelbrot and Julia sets with interactive controls.
@@ -11,6 +14,8 @@ The project renders Mandelbrot and Julia sets with interactive controls.
 - Julia
 
 ![Julia fractal](https://upload.wikimedia.org/wikipedia/commons/7/7e/Julia_0.4_0.6.png)
+
+## Instructions
 
 ## Compilation
 ```bash
@@ -32,6 +37,12 @@ make
 - Points that do not diverge are colored black
 
 - Julia parameters must be between [-2.0, 2.0]
+
+## Resources
+
+- https://www.karlsims.com/julia.html
+- https://qst0.github.io/ft_libgfx/man_mlx.html
+- https://harm-smits.github.io/42docs/libs/minilibx/getting_started.html
 
 ## Libraries
 

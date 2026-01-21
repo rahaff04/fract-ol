@@ -6,7 +6,7 @@
 /*   By: ralamair <ralamair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 10:26:38 by ralamair          #+#    #+#             */
-/*   Updated: 2026/01/12 14:59:53 by ralamair         ###   ########.fr       */
+/*   Updated: 2026/01/21 15:16:30 by ralamair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# include <mlx.h>
+# include "mlx.h"
 
-# define WIDTH 1500
-# define HEIGHT 500
+# define WIDTH 800
+# define HEIGHT 600
 # define MOVE_STEP 0.2
 
 typedef enum e_type
@@ -43,8 +43,8 @@ typedef struct s_fractal
 	double	zoom;
 	int		max_iter;
 	t_type	type;
-	double	julia_cr;
-	double	julia_ci;
+	double	julia_cr ;
+	double	julia_ci ;
 }	t_fractal;
 
 void			ft_bzero(void *s, size_t n);

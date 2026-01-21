@@ -6,13 +6,13 @@
 /*   By: ralamair <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 10:29:44 by ralamair          #+#    #+#             */
-/*   Updated: 2026/01/12 12:10:14 by ralamair         ###   ########.fr       */
+/*   Updated: 2026/01/21 14:23:41 by ralamair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fractol.h"
 
-int mouse_zoom_ju(int button, int x, int y, t_fractal *f)
+int	mouse_zoom_ju(int button, int x, int y, t_fractal *f)
 {
 	double	mouse_re;
 	double	mouse_im;
